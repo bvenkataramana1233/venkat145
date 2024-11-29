@@ -35,10 +35,9 @@
         <p>Check out our latest discounts.</p>
     </div> -->
     <div id="banner" class="banner">
-
-        <img id="bannerImage" src="default-banner.jpg" alt="Banner" class="banner-img"
-            srcset="default-banner-small.jpg 480w, default-banner-medium.jpg 768w, default-banner-large.jpg 1024w"
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 100vw">
+    <img id="bannerImage" src="default-banner.jpg" alt="Banner" class="banner-img"
+    srcset="default-banner-small.jpg 480w, default-banner-medium.jpg 768w, default-banner-large.jpg 1024w"
+    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 100vw">
     </div>
     <div class="container">
         <!-- Left Side Filter -->
@@ -49,9 +48,11 @@
             <h5>Filters</h5>
             <hr class="line">
             <form class="formcontent">
-
-                <input type="text" id="searchInput" placeholder="Search by product name..."
-                    oninput="searchProducts()" /><br /><br />
+            <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by product name..." />
+            <button type="button" id="searchBtn" >Search</button>
+          </div>
+          <hr class="line">
                 <h5>Categories</h5><br />
                 <label><input type="checkbox" name="category" value="men's clothing"> Men's Clothing</label><br>
                 <label><input type="checkbox" name="category" value="women's clothing"> Women's Clothing</label><br>
@@ -60,6 +61,20 @@
                 <label><input type="checkbox" name="category" value=""> All</label><br>
             </form>
             <hr class="line">
+            <h5>Set Your Price Range</h5>
+            <br><br>
+    
+    <div class="range-label">
+      <span>min-0</span>
+      <span id="price-value">$50</span> <!-- This will show the selected price -->
+      <span>max -100</span>
+    </div>
+    
+    <input type="range" id="price-range" min="0" max="100" value="50">
+    
+    <div class="progress-bar">
+      <span id="progress"></span>
+    </div>
         </aside>
 
         <!-- Product Listing -->
@@ -69,10 +84,10 @@
             <div class="sort-options">
                 <label for="sort">Sort by:</label>
                 <select id="sort">
-                    <option value="default">Default</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                </select>
+                <option value="default">Default</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
             </div>
 
             <div class="products" id="product-list">
@@ -84,11 +99,9 @@
             </div>
 
             <!-- Pagination Controls -->
-            <div class="pagination" id="pagination-controls">
-                <button id="prev" class="pagination-button" disabled>Previous</button>
-                <span id="page-info"></span>
-                <button id="next" class="pagination-button">Next</button>
-            </div>
+
+            <button id="loadMoreBtn" class="loader-button" >Load More</button>
+
         </main>
     </div>
 
